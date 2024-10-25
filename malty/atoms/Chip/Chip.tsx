@@ -4,7 +4,8 @@ import { Button, ButtonSize, ButtonStyle } from '@carlsberg/malty.atoms.button';
 import { Text, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
 import { Plus } from '@carlsberg/malty.icons.plus';
 import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { StyledChip, StyledTextContainer } from './Chip.styled';
 import { ChipProps, ChipSize } from './Chip.types';
 
@@ -20,8 +21,8 @@ export const Chip = ({
   readOnly = false,
   ...props
 }: ChipProps) => {
-  const theme = defaultTheme;
-  const [chipSize, setChipSize] = useState(theme.sizes.l.value);
+  const theme = useContext(ThemeContext) || defaultTheme;
+  const [chipSize, setChipSize] = useState(theme.sizesV2.l.value);
   const [fontSize, setFontSize] = useState(TextStyle.MediumSmallBold);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
 
@@ -32,20 +33,20 @@ export const Chip = ({
   useEffect(() => {
     switch (size) {
       case ChipSize.XSmall: {
-        setChipSize(theme.sizes.m.value);
+        setChipSize(theme.sizesV2.m.value);
         setFontSize(TextStyle.SmallBold);
         setButtonSize(ButtonSize.XSmall);
         break;
       }
       case ChipSize.Small: {
-        setChipSize(theme.sizes.l.value);
+        setChipSize(theme.sizesV2.l.value);
         setFontSize(TextStyle.MediumSmallBold);
         setButtonSize(ButtonSize.Small);
         break;
       }
 
       default: {
-        setChipSize(theme.sizes.xl.value);
+        setChipSize(theme.sizesV2.xl.value);
         setFontSize(TextStyle.MediumSmallBold);
         setButtonSize(ButtonSize.Medium);
         break;
@@ -55,12 +56,12 @@ export const Chip = ({
 
   const getIconColor = () => {
     if (disabled) {
-      return IconColor.DisableLight;
+      return theme.colorsV2.system['disable-light-theme'].value;
     }
     if (readOnly) {
-      return selected ? IconColor.White : IconColor.Support80;
+      return selected ? theme.colorsV2.default.white.value : theme.colorsV2.support[80].value;
     }
-    return IconColor.DigitalBlack;
+    return theme.colorsV2.default['digital-black'].value;
   };
 
   return (
@@ -99,10 +100,10 @@ export const Chip = ({
               : readOnly && !selected
               ? TextColor.Support80
               : disabled
-              ? IconColor.DisableLight
+              ? theme.colorsV2.system['disable-light-theme'].value
               : selected
-              ? IconColor.White
-              : IconColor.DigitalBlack) as TextColor
+              ? theme.colorsV2.default.white.value
+              : theme.colorsV2.default['digital-black'].value) as TextColor
           }
         >
           {label}
