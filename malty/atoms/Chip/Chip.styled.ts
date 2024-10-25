@@ -14,26 +14,26 @@ export const StyledChip = styled.div<StyledChipProps>`
   cursor: pointer;
   display: flex;
   align-items: center;
-  height: ${({ height }) => height};
+  height: ${({ theme, size }) => theme.sizesV2[size].value};
   width: fit-content;
   background-color: ${({ theme, selected }) =>
-    selected ? theme.colors.colours.support[100].value : theme.colors.colours.support[20].value};
+    selected ? theme.colorsV2.support[100].value : theme.colorsV2.support[20].value};
   padding: 0
     ${({ size, theme }) => {
       if (size === ChipSize.XSmall) {
-        return theme.sizes['2xs'].value;
+        return theme.sizesV2['2xs'].value;
       }
       if (size === ChipSize.Small) {
-        return theme.sizes.xs.value;
+        return theme.sizesV2.xs.value;
       }
-      return theme.sizes.s.value;
+      return theme.sizesV2.s.value;
     }};
   ${({ disabled, selected }) =>
     disabled &&
     css`
       pointer-events: none;
       cursor: default;
-      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      background-color: ${({ theme }) => theme.colorsV2.system['disable-light-theme'].value};
       opacity: ${selected ? 1 : 0.75};
     `};
   ${({ readOnly, selected }) =>
@@ -42,7 +42,7 @@ export const StyledChip = styled.div<StyledChipProps>`
     css`
       pointer-events: none;
       cursor: default;
-      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      background-color: ${({ theme }) => theme.colorsV2.support[20].value};
     `};
   ${({ readOnly, selected }) =>
     readOnly &&
@@ -50,7 +50,7 @@ export const StyledChip = styled.div<StyledChipProps>`
     css`
       pointer-events: none;
       cursor: default;
-      background-color: ${({ theme }) => theme.colors.colours.support[80].value};
+      background-color: ${({ theme }) => theme.colorsV2.support[80].value};
     `};
   ${({ hasButton }) =>
     hasButton &&
@@ -78,18 +78,18 @@ export const StyledTextContainer = styled.div<{
 }>`
   padding-left: ${({ size, theme, hasIcon, hasButton }) => {
     if (hasIcon && !hasButton && size === ChipSize.XSmall) {
-      return theme.sizes['4xs'].value;
+      return theme.sizesV2['4xs'].value;
     }
-    return hasIcon && !hasButton && theme.sizes['2xs'].value;
+    return hasIcon && !hasButton && theme.sizesV2['2xs'].value;
   }};
   padding-right: ${({ hasButton, theme, size }) => {
     if (hasButton && size === ChipSize.XSmall) {
-      return theme.sizes['2xs'].value;
+      return theme.sizesV2['2xs'].value;
     }
     if (hasButton && size === ChipSize.Small) {
-      return theme.sizes.xs.value;
+      return theme.sizesV2.xs.value;
     }
-    return hasButton && theme.sizes.s.value;
+    return hasButton && theme.sizesV2.s.value;
   }};
   p {
     transition: color 0.3s ease-in-out !important;
