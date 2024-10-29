@@ -3,7 +3,7 @@ import { CloneIcon, IconColor, IconSize } from '@carlsberg/malty.atoms.base-icon
 import { Button, ButtonSize, ButtonStyle } from '@carlsberg/malty.atoms.button';
 import { Text, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
 import { Plus } from '@carlsberg/malty.icons.plus';
-import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
+import { defaultTheme } from '@carlsberg/malty.theme.new-malty-theme-provider';
 import React, { useEffect, useState } from 'react';
 import { StyledChip, StyledTextContainer } from './Chip.styled';
 import { ChipProps, ChipSize } from './Chip.types';
@@ -21,7 +21,7 @@ export const Chip = ({
   ...props
 }: ChipProps) => {
   const theme = defaultTheme;
-  const [chipSize, setChipSize] = useState(theme.sizes.l.value);
+  const [chipSize, setChipSize] = useState(theme.sizesV2.l.value);
   const [fontSize, setFontSize] = useState(TextStyle.MediumSmallBold);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
 
@@ -32,20 +32,20 @@ export const Chip = ({
   useEffect(() => {
     switch (size) {
       case ChipSize.XSmall: {
-        setChipSize(theme.sizes.m.value);
+        setChipSize(theme.sizesV2.m.value);
         setFontSize(TextStyle.SmallBold);
         setButtonSize(ButtonSize.XSmall);
         break;
       }
       case ChipSize.Small: {
-        setChipSize(theme.sizes.l.value);
+        setChipSize(theme.sizesV2.l.value);
         setFontSize(TextStyle.MediumSmallBold);
         setButtonSize(ButtonSize.Small);
         break;
       }
 
       default: {
-        setChipSize(theme.sizes.xl.value);
+        setChipSize(theme.sizesV2.xl.value);
         setFontSize(TextStyle.MediumSmallBold);
         setButtonSize(ButtonSize.Medium);
         break;
