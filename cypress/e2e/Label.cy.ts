@@ -8,4 +8,10 @@ describe('<Label />', () => {
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
+
+  it('Disabled', () => {
+    const page = visit({ args: { dataTestId }, storyId: 'forms-label--disabled' });
+
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+  });
 });
