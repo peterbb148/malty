@@ -25,7 +25,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   transition-property: background-color, color;
   cursor: pointer;
   border: none;
-  gap: ${({ theme }) => theme.sizesV2.s};
+  gap: ${({ theme }) => theme.sizes.s.value};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   flex-direction: ${({ iconPos }) =>
     ButtonIconPosition[iconPos] === ButtonIconPosition.Right ? 'row' : 'row-reverse'};
@@ -34,71 +34,71 @@ const StyledButton = styled.button<StyledButtonProps>`
     switch (size) {
       case ButtonSize.XSmall: {
         return css`
-          font-family: ${theme.typographyV2.montserrat.body[14].bold.fontFamily};
-          font-size: ${theme.typographyV2.montserrat.body[14].bold.fontSize};
-          height: ${theme.sizesV2.m};
-          max-width: ${!hasText && theme.sizesV2.m};
-          padding: 0 ${hasText ? theme.sizesV2['2xs'] : theme.sizesV2['4xs']};
+          font-family: ${theme.typography.desktop.text.small_bold['font-family'].value};
+          font-size: ${theme.typography.desktop.text.small_bold['font-size'].value};
+          height: ${theme.sizes.m.value};
+          max-width: ${!hasText && theme.sizes.m.value};
+          padding: 0 ${hasText ? theme.sizes['2xs'].value : theme.sizes['4xs'].value};
 
           svg {
-            height: ${theme.sizesV2.s};
-            width: ${theme.sizesV2.s};
+            height: ${theme.sizes.s.value};
+            width: ${theme.sizes.s.value};
           }
         `;
       }
       case ButtonSize.Small: {
         return css`
-          font-family: ${theme.typographyV2.montserrat.body[14].bold.fontFamily};
-          font-size: ${theme.typographyV2.montserrat.body[14].bold.fontSize};
-          height: ${theme.sizesV2.l};
-          max-width: ${!hasText && theme.sizesV2.l};
-          padding: 0 ${hasText ? theme.sizesV2.xs : theme.sizesV2['3xs']};
+          font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+          font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+          height: ${theme.sizes.l.value};
+          max-width: ${!hasText && theme.sizes.l.value};
+          padding: 0 ${hasText ? theme.sizes.xs.value : theme.sizes['3xs'].value};
 
           svg {
-            height: ${theme.sizesV2.ms};
-            width: ${theme.sizesV2.ms};
+            height: ${theme.sizes.ms.value};
+            width: ${theme.sizes.ms.value};
           }
         `;
       }
       case ButtonSize.Large: {
         return css`
-          font-family: ${theme.typographyV2.montserrat.body[14].bold.fontFamily};
-          font-size: ${theme.typographyV2.montserrat.body[14].bold.fontSize};
-          height: ${theme.sizesV2['2xl']};
-          max-width: ${!hasText && theme.sizesV2['2xl']};
-          padding: 0 ${hasText ? `${theme.sizesV2.s}` : `${theme.sizesV2.xs}`};
+          font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+          font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+          height: ${theme.sizes['2xl'].value};
+          max-width: ${!hasText && theme.sizes['2xl'].value};
+          padding: 0 ${hasText ? `${theme.sizes.s.value}` : `${theme.sizes.xs.value}`};
 
           svg {
-            height: ${theme.sizesV2.m};
-            width: ${theme.sizesV2.m};
+            height: ${theme.sizes.m.value};
+            width: ${theme.sizes.m.value};
           }
         `;
       }
       case ButtonSize.XLarge: {
         return css`
-          font-family: ${theme.typographyV2.montserrat.body[14].bold.fontFamily};
-          font-size: ${theme.typographyV2.montserrat.body[14].bold.fontSize};
-          height: ${theme.sizesV2['3xl']};
-          max-width: ${!hasText && theme.sizesV2['3xl']};
-          padding: 0 ${theme.sizesV2.s};
+          font-family: ${theme.typography.desktop.text.medium_bold['font-family'].value};
+          font-size: ${theme.typography.desktop.text.medium_bold['font-size'].value};
+          height: ${theme.sizes['3xl'].value};
+          max-width: ${!hasText && theme.sizes['3xl'].value};
+          padding: 0 ${theme.sizes.s.value};
 
           svg {
-            height: ${theme.sizesV2.m};
-            width: ${theme.sizesV2.m};
+            height: ${theme.sizes.m.value};
+            width: ${theme.sizes.m.value};
           }
         `;
       }
       default: {
         return css`
-          font-family: ${theme.typographyV2.montserrat.body[14].bold.fontFamily};
-          font-size: ${theme.typographyV2.montserrat.body[14].bold.fontSize};
-          height: ${theme.sizesV2.xl};
-          max-width: ${!hasText && theme.sizesV2.xl};
-          padding: 0 ${hasText ? `${theme.sizesV2.s}` : `${theme.sizesV2['2xs']}`};
+          font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+          font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+          height: ${theme.sizes.xl.value};
+          max-width: ${!hasText && theme.sizes.xl.value};
+          padding: 0 ${hasText ? `${theme.sizes.s.value}` : `${theme.sizes['2xs'].value}`};
 
           svg {
-            height: ${theme.sizesV2.m};
-            width: ${theme.sizesV2.m};
+            height: ${theme.sizes.m.value};
+            width: ${theme.sizes.m.value};
           }
         `;
       }
@@ -112,14 +112,14 @@ const StyledButton = styled.button<StyledButtonProps>`
 
   &:disabled {
     cursor: default;
-    color: ${({ theme }) => theme.colorsV2.default.neutral[50]};
-    background-color: ${({ theme }) => theme.colorsV2.default.neutral[200]};
+    color: ${({ theme }) => theme.colors.colours.default.white.value};
+    background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
   }
 
   .text-container {
     display: flex;
     align-items: center;
-    gap: ${({ theme }) => theme.sizesV2['2xs']};
+    gap: ${({ theme }) => theme.sizes['2xs'].value};
     opacity: 1;
     font: inherit;
     &.invisible {
@@ -155,17 +155,17 @@ const StyledButton = styled.button<StyledButtonProps>`
 export const StyledPrimaryButton = styled(StyledButton)`
   background-color: ${({ isNegative, theme, color }) =>
     isNegative
-      ? theme.colorsV2.default.neutral[50]
+      ? theme.colors.colours.default.white.value
       : color === ButtonColor.DigitalBlack
-      ? theme.colorsV2.default.neutral[900]
-      : theme.colors.theme[color]};
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.theme[color].value};
   color: ${({ isNegative, theme, color }) =>
     isNegative
       ? color === ButtonColor.DigitalBlack
-        ? theme.colorsV2.default.neutral[900]
-        : theme.colors.theme[color]
-      : theme.colorsV2.default.neutral[50]};
-  border: 1px solid ${({ theme }) => theme.colorsV2.default.neutral[50]};
+        ? theme.colors.colours.default['digital-black'].value
+        : theme.colors.theme[color].value
+      : theme.colors.colours.default.white.value};
+  border: 1px solid ${({ theme }) => theme.colors.colours.default.transparent.value};
 
   &:hover {
     filter: brightness(${({ isNegative }) => (isNegative ? '95%' : '140%')});
@@ -185,15 +185,15 @@ export const StyledPrimaryButton = styled(StyledButton)`
     ${({ isNegative, theme }) =>
       isNegative &&
       css`
-        background-color: ${theme.colorsV2.default.neutral[200]};
-        color: ${theme.colorsV2.default.neutral[200]};
+        background-color: ${theme.colors.colours.system['disable-dark-theme'].value};
+        color: ${theme.colors.colours.system['disable-dark-theme'].value};
         &:hover {
-          background-color: ${theme.colorsV2.default.neutral[200]};
-          color: ${theme.colorsV2.default.neutral[200]};
+          background-color: ${theme.colors.colours.system['disable-dark-theme'].value};
+          color: ${theme.colors.colours.system['disable-dark-theme'].value};
         }
         svg {
-          fill: ${theme.colorsV2.default.neutral[200]};
-          color: ${theme.colorsV2.default.neutral[200]};
+          fill: ${theme.colors.colours.system['disable-dark-theme'].value};
+          color: ${theme.colors.colours.system['disable-dark-theme'].value};
         }
       `};
   }
@@ -206,64 +206,64 @@ export const StyledPrimaryButton = styled(StyledButton)`
 `;
 
 export const StyledSecondaryButton = styled(StyledButton)`
-  background-color: ${({ theme }) => theme.colorsV2.default.neutral[50]};
+  background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
   color: ${({ isNegative, theme, color }) =>
     isNegative
-      ? theme.colorsV2.default.neutral[50]
+      ? theme.colors.colours.default.white.value
       : color === ButtonColor.DigitalBlack
-      ? theme.colorsV2.default.neutral[900]
-      : theme.colors.theme[color]};
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.theme[color].value};
   border: 1px solid
     ${({ isNegative, theme, color }) =>
       isNegative
-        ? theme.colorsV2.default.neutral[50]
+        ? theme.colors.colours.default.white.value
         : color === ButtonColor.DigitalBlack
-        ? theme.colorsV2.default.neutral[900]
-        : theme.colors.theme[color]};
+        ? theme.colors.colours.default['digital-black'].value
+        : theme.colors.theme[color].value};
   &:hover {
     background-color: ${({ isNegative, theme }) =>
       isNegative
-        ? theme.colorsV2.default.neutral[50]
-        : theme.colorsV2.default.neutral[50]};
+        ? theme.colors.colours.overlay.white[5].value
+        : theme.colors.colours.overlay['digital-black'][5].value};
   }
   &:active {
     background-color: ${({ isNegative, theme }) =>
       isNegative
-        ? theme.colorsV2.default.neutral[50]
-        : theme.colorsV2.default.neutral[50]};
+        ? theme.colors.colours.overlay.white[10].value
+        : theme.colors.colours.overlay['digital-black'][10].value};
   }
   &:disabled {
     svg {
       fill: ${({ isNegative, theme }) =>
         isNegative
-          ? theme.colorsV2.default.neutral[200]
-          : theme.colorsV2.default.neutral[200]};
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
       color: ${({ isNegative, theme }) =>
         isNegative
-          ? theme.colorsV2.default.neutral[200]
-          : theme.colorsV2.default.neutral[200]};
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
     }
-    background-color: ${({ theme }) => theme.colorsV2.default.neutral[50]};
+    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
     border: 1px solid
       ${({ isNegative, theme }) =>
         isNegative
-          ? theme.colorsV2.default.neutral[200]
-          : theme.colorsV2.default.neutral[200]};
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
     color: ${({ isNegative, theme }) =>
       isNegative
-        ? theme.colorsV2.default.neutral[200]
-        : theme.colorsV2.default.neutral[200]};
+        ? theme.colors.colours.system['disable-dark-theme'].value
+        : theme.colors.colours.system['disable-light-theme'].value};
     &:hover {
-      background-color: ${({ theme }) => theme.colorsV2.default.neutral[50]};
+      background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
       border: 1px solid
         ${({ isNegative, theme }) =>
           isNegative
-            ? theme.colorsV2.default.neutral[200]
-            : theme.colorsV2.default.neutral[200]};
+            ? theme.colors.colours.system['disable-dark-theme'].value
+            : theme.colors.colours.system['disable-light-theme'].value};
       color: ${({ isNegative, theme }) =>
         isNegative
-          ? theme.colorsV2.default.neutral[200]
-          : theme.colorsV2.default.neutral[200]};
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
     }
   }
 
@@ -271,57 +271,57 @@ export const StyledSecondaryButton = styled(StyledButton)`
     $selected &&
     css`
       background-color: ${isNegative
-        ? theme.colorsV2.default.neutral[50]
-        : theme.colorsV2.default.neutral[50]};
+        ? theme.colors.colours.overlay.white[10].value
+        : theme.colors.colours.overlay['digital-black'][10].value};
     `}
 `;
 
 export const StyledTransparentButton = styled(StyledButton)`
-  background-color: ${({ theme }) => theme.colorsV2.default.neutral[50]};
+  background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
 
   color: ${({ isNegative, theme, color }) =>
     isNegative
-      ? theme.colorsV2.default.neutral[50]
+      ? theme.colors.colours.default.white.value
       : color === ButtonColor.DigitalBlack
-      ? theme.colorsV2.default.neutral[900]
-      : theme.colors.theme[color]};
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.theme[color].value};
   &.active {
-    background-color: ${({ theme }) => theme.colorsV2.default.neutral[50]};
+    background-color: ${({ theme }) => theme.colors.colours.support[40].value};
   }
   &:hover {
     background-color: ${({ isNegative, theme }) =>
       isNegative
-        ? theme.colorsV2.default.neutral[50]
-        : theme.colorsV2.default.neutral[50]};
+        ? theme.colors.colours.overlay.white[5].value
+        : theme.colors.colours.overlay['digital-black'][5].value};
   }
   &:active {
     background-color: ${({ isNegative, theme }) =>
       isNegative
-        ? theme.colorsV2.default.neutral[50]
-        : theme.colorsV2.default.neutral[50]};
+        ? theme.colors.colours.overlay.white[10].value
+        : theme.colors.colours.overlay['digital-black'][10].value};
   }
   &:disabled {
     svg {
       fill: ${({ isNegative, theme }) =>
         isNegative
-          ? theme.colorsV2.default.neutral[200]
-          : theme.colorsV2.default.neutral[200]};
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
       color: ${({ isNegative, theme }) =>
         isNegative
-          ? theme.colorsV2.default.neutral[200]
-          : theme.colorsV2.default.neutral[200]};
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
     }
-    background-color: ${({ theme }) => theme.colorsV2.default.neutral[50]};
+    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
     color: ${({ isNegative, theme }) =>
       isNegative
-        ? theme.colorsV2.default.neutral[200]
-        : theme.colorsV2.default.neutral[200]};
+        ? theme.colors.colours.system['disable-dark-theme'].value
+        : theme.colors.colours.system['disable-light-theme'].value};
     &:hover {
-      background-color: ${({ theme }) => theme.colorsV2.default.neutral[50]};
+      background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
       color: ${({ isNegative, theme }) =>
         isNegative
-          ? theme.colorsV2.default.neutral[200]
-          : theme.colorsV2.default.neutral[200]};
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
     }
   }
 
@@ -329,7 +329,7 @@ export const StyledTransparentButton = styled(StyledButton)`
     $selected &&
     css`
       background-color: ${isNegative
-        ? theme.colorsV2.default.neutral[50]
-        : theme.colorsV2.default.neutral[50]};
+        ? theme.colors.colours.overlay.white[10].value
+        : theme.colors.colours.overlay['digital-black'][10].value};
     `}
 `;
